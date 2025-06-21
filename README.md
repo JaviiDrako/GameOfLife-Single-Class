@@ -18,32 +18,47 @@ This project implements the game with the following features:
 
 --- 
 
-### How to Run
+## 🚀 How to Run
 
-The program is run from the command line and accepts arguments via the `String[] args` parameter in the `main` method. These arguments allow you to customize the initial configuration and behavior of the game.
-There are 5 configurable parameters:
+The program is run from the **command line** and accepts arguments via the `String[] args` parameter in the `main` method. These arguments let you customize the initial configuration and behavior of the game.
 
-- Width: How many columns there will be on the game grid.
-  
-  You can set any integer valor between 10 and 80.
-- Heigth: How many rows there will be on the game grid.
+There are **5 configurable parameters**:
 
-  You can set any valor between 10 and 80.
-- Generations: How many times Game of life rules will be applied on every cell on the grid.
+---
 
-  You can set any integer valor and if you set 0, there will be infinite generations.
-- Speed: How fast generations will change.
+### 🧱 Width
+- **Description:** Number of columns in the game grid.  
+- **Allowed values:** Any integer between `10` and `80`.
 
-- You can set an integer valor between 250 and 1000, these are miliseconds.
-- Population: First generation to start the game.
+---
 
-  You can type a string seed to set the fisrt generationon following these syntax:
+### 📏 Height
+- **Description:** Number of rows in the game grid.  
+- **Allowed values:** Any integer between `10` and `80`.
 
-  - 1 is an alive cell and 0 is a died cell.
-  - Each # symbol is a row jump, you can use them together to jump as many rows as you want.
-  - You can use rnd string for a random first generation seed.
+---
 
-#### Example (grid 6x6):
+### 🔄 Generations
+- **Description:** Number of generations to simulate. Each generation applies the Game of Life rules to every cell.
+- **Allowed values:** Any positive integer.  
+  - If set to `0`, the game will run infinitely.
+
+---
+
+### ⏱️ Speed
+- **Description:** How fast generations are updated (in milliseconds).  
+- **Allowed values:** Any integer between `250` and `1000`.
+
+---
+
+### 🌱 Population (Initial Seed)
+- **Description:** The starting configuration of live and dead cells.  
+- **Input format:** A string using:
+  - `1` for alive cells, `0` for dead cells.
+  - `#` to indicate a new row (you can use multiple to skip rows).
+  - Use `"rnd"` to generate a random initial seed.
+
+#### Example (6×6 grid):
 
 101#111#0001#1##101
 ```
@@ -55,14 +70,112 @@ There are 5 configurable parameters:
  ██ ░░ ██ ░░ ░░ ░░
 ```
 
-- Neighborhood: Pattern for applying Game of life rules on a cell.
 
-  There are 5 patterns for cells to set:
-    - 1:
- 
-      
+---
 
-### Usage
+### 🧭 Neighborhood Pattern
+
+Each cell in the grid is evaluated according to the **Game of Life rules** to determine if it will live, die, or be born in the next generation. This evaluation depends on the number of **neighboring live cells**, based on a specified pattern.
+
+#### 🔹 Game of Life Rules:
+- A **live** cell with **2 or 3 neighbors** stays alive.
+- A **dead** cell with **exactly 3 neighbors** becomes alive (birth).
+- All other cells **die** or remain dead due to underpopulation or overpopulation.
+
+There are **5 neighbor patterns**. The white squares (`██`) represent neighbors; the center (`░░`) is the current cell.
+
+#### Pattern 1
+
+
+ ```
+ ░░ ██ ░░
+ ██ ░░ ██
+ ░░ ██ ░░
+ ```
+
+#### Pattern 2
+ ```
+ ██ ██ ░░
+ ██ ░░ ██
+ ░░ ██ ██
+ ```
+
+#### Pattern 3 (Default – Conway's Original)
+ ```
+ ██ ██ ██
+ ██ ░░ ██
+ ██ ██ ██
+ ```
+
+#### Pattern 4
+ ```
+ ██ ░░ ██
+ ░░ ░░ ░░
+ ██ ░░ ██
+ ```
+
+#### Pattern 5
+ ```
+ ██ ██ ██
+ ░░ ░░ ░░
+ ██ ██ ██
+ ```
+
+---
+
+## 🕹️ Usage
+
+To run the game, you first need to **compile** the `Gol.java` class using the following command:
+
+```
+javac Gol.java
+```
+
+Then, you can **execute the game** with:
+
+```
+java Gol arg1 arg2 arg3 arg4 ...
+```
+
+
+Each parameter is passed as a `key=value` pair. Here's what each one means:
+
+| Argument      | Description                                           |
+|---------------|-------------------------------------------------------|
+| `w=value`     | Width of the grid (e.g., `w=60`)                      |
+| `h=value`     | Height of the grid (e.g., `h=20`)                     |
+| `g=value`     | Number of generations (e.g., `g=300`; use `0` for infinite) |
+| `s=value`     | Speed in milliseconds between generations (e.g., `s=300`) |
+| `p=seed`      | Initial population seed (`p=rnd` for random, or a custom seed string) |
+| `n=value`     | Neighborhood pattern (1 to 5; see above for details)  |
+
+---
+
+### ✅ Example:
+
+
+
+```
+java Gol w=60 h=20 g=300 s=300 p=rnd n=3
+```
+
+
+This command starts the game with:
+- A 60×20 grid
+- 300 generations
+- 300 ms per generation
+- A random starting population
+- Neighborhood pattern 3 (Conway’s default)
+
+
+
+
+
+
+
+
+
+
 
 
 
