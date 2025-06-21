@@ -48,7 +48,7 @@ There are **5 configurable parameters**:
 
 ### ⏱️ Speed
 - **Description:** How fast generations are updated (in milliseconds).  
-- **Allowed values:** Any integer between `250` and `1000`.
+- **Allowed values:** Any integer between `100` and `1000`.
 
 ---
 
@@ -146,7 +146,7 @@ Each parameter is passed as a `key=value` pair. Here's what each one means:
 | `w=value`     | Width of the grid (e.g., `w=60`)                      |
 | `h=value`     | Height of the grid (e.g., `h=20`)                     |
 | `g=value`     | Number of generations (e.g., `g=300`; use `0` for infinite) |
-| `s=value`     | Speed in milliseconds between generations (e.g., `s=300`) |
+| `s=value`     | Speed in milliseconds between generations (e.g., `s=200`) |
 | `p=seed`      | Initial population seed (`p=rnd` for random, or a custom seed string) |
 | `n=value`     | Neighborhood pattern (1 to 5; see above for details)  |
 
@@ -157,14 +157,14 @@ Each parameter is passed as a `key=value` pair. Here's what each one means:
 
 
 ```
-java Gol w=60 h=20 g=300 s=300 p=rnd n=3
+java Gol w=60 h=20 g=200 s=300 p=rnd n=3
 ```
 
 
 This command starts the game with:
 - A 60×20 grid
 - 300 generations
-- 300 ms per generation
+- 200 ms per generation
 - A random starting population
 - Neighborhood pattern 3 (Conway’s default)
 
