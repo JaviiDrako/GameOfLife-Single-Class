@@ -29,7 +29,7 @@ public class Gol {
             switch (settings[i].substring(0, 2)) {
                 case "w=":
                     width = parseInt(settings[i]);
-                    if (width != 10 && width != 20 && width != 40 && width != 80 && width != 0) {
+                    if (width < 10 || width > 80) {
                         controlOfState = -2;
                         width = 0;
                     }
@@ -37,7 +37,7 @@ public class Gol {
                     break;
                 case "h=":
                     height = parseInt(settings[i]);
-                    if (height != 10 && height != 20 && height != 40 && height != 0) {
+                    if (height < 10 || height > 80) {
                         controlOfState = -2;
                         height = 0;
                     }
@@ -52,7 +52,7 @@ public class Gol {
                     break;
                 case "s=":
                     speed = parseInt(settings[i]);
-                    if (controlOfState != -1 && speed < 250 || speed > 1000) {
+                    if (controlOfState != -1 && speed < 100 || speed > 1000) {
                         controlOfState = -2;
                     }
                     speedString = setState(speedString, speed);
