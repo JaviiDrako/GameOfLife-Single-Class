@@ -1,7 +1,8 @@
 ## Conways's Game of Life in Java
 
-This is a simple Java class that runs Conway's Game of Life using only one Java class. 
-It is a beginner project designed to practice programming logic, arrays, and control structures such as while, for, switch, and conditionals.
+This is a simple Java program that implements Conway's Game of Life using a single class.  
+It reads configuration parameters directly from command-line arguments (`String[] args`), without using `Scanner` or interactive input.  
+The project is intended for beginners to practice core programming concepts such as arrays, loops (`while`, `for`), `switch` statements, and conditional logic.
 
 ---
 
